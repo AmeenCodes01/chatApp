@@ -1,10 +1,14 @@
 import {v} from "convex/values";
 import {mutation, query} from "./_generated/server";
-
+import {validateToken} from "../utils/validateToken";
 export const get = query({
-  args: {},
-  handler: async (ctx) => {
-    return await ctx.db.query("groups").collect();
+  args: {token: v.any()},
+  handler: async (ctx, {token}) => {
+    if (token) {
+      const data = validateToken(token);
+      return await ctx.db.query("groups").collect();
+    }
+    return "no token";
   },
 });
 export const getGroup = query({

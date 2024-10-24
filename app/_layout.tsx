@@ -37,6 +37,8 @@ export default function RootLayout() {
           }}
         />
         <Stack.Screen name="(chat)/[chatid]" options={{headerTitle: "Test"}} />
+        <Stack.Screen name="(auth)/authform" options={{headerTitle: "Auth"}} />
+
         <Stack.Screen
           name="(modal)/create"
           options={{

@@ -16,6 +16,7 @@ const create = () => {
   const [icon, setIcon] = useState("");
   const router = useRouter();
   const startGroup = useMutation(api.groups.create);
+
   const onCreateGroup = async () => {
     await startGroup({name, description: desc, icon_url: icon});
     router.back();
